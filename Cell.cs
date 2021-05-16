@@ -10,16 +10,15 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
     {
         public enum Sign
         {
-            E = 0,
+            Empty = 0,
             X = 1,
             O = 2,
         }
-
         private sbyte m_Col;
         private sbyte m_Row;
         private Sign m_CellSign;
 
-        public Cell(sbyte i_row, sbyte i_col, Sign i_sign)
+        public Cell(sbyte i_row, sbyte i_col, Sign i_sign = Sign.Empty)
         {
             this.m_Col = i_col;
             this.m_Row = i_row;

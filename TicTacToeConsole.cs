@@ -15,23 +15,17 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         public void startGame()
         {
-            UserInput userInput = new UserInput(); //*****ask - should it be here? *********
-
             WelcomeMessage();
 
             // Get the board size:
-            sbyte boardSize = userInput.GetBoardSize(out m_gameOver);
-            this.m_ConsoleBoard = new Board(boardSize);
+            startBoard();
             if (!m_gameOver)
             {
-                bool isComputerOpponent = userInput.GetOpponentType(out m_gameOver);
-                string playerOneName = userInput.GetUserName(out m_gameOver);
+                setUpPlayers();
+                
             }
             Console.WriteLine("Game over!");
             Console.ReadLine();
-            
-
-
         }
 
         private static void WelcomeMessage()
@@ -43,6 +37,47 @@ You can press 'Q' at any point to quit the game!");
 
             Console.WriteLine(msg);
         }
-        
+
+        private void startBoard()
+        {
+            UserInput userInput = new UserInput();
+            sbyte boardSize = userInput.GetBoardSize(out m_gameOver);
+
+            this.m_ConsoleBoard = new Board(boardSize);
+        }
+
+        private void setUpPlayers()
+        {
+            UserInput userInput = new UserInput();
+            string playerOneName;
+            string playerTwoName;
+            bool isComputerOpponent;
+
+            playerOneName = userInput.GetUserName(out m_gameOver, 1);
+            if (m_gameOver)
+            {
+                return;
+            }
+            isComputerOpponent = userInput.GetOpponentType(out m_gameOver);
+            if (m_gameOver)
+            {
+                return;
+            }
+            if (!isComputerOpponent)
+            {
+                playerTwoName = userInput.GetUserName(out m_gameOver, 2);
+                if (m_gameOver)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                playerTwoName = "Computer";
+            }
+
+            this.m_player1 = new Player(playerOneName, false);
+            this.m_player2 = new Player(playerTwoName, isComputerOpponent);
+        }
     }
 }
