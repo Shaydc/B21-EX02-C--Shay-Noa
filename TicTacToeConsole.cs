@@ -8,7 +8,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     internal class TicTacToeConsole
     {
-        private bool m_gameOver = false;
+        private bool m_userWantsToQuit = false;
         private Player m_player1;
         private Player m_player2;
         private Board m_ConsoleBoard;
@@ -20,17 +20,19 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
             // Get the board size:
             startBoard();
-            if(!m_gameOver)
+            if(!m_userWantsToQuit)
             {
                 setUpPlayers();
-                if(!m_gameOver)
+                if(!m_userWantsToQuit)
                 {
-                    Console.WriteLine("hello");
                     Game game = new Game(m_player1, m_player2, m_ConsoleBoard);
-                    while (!m_gameOver)
+                    bool gameOver = game.GameOver;
+                    while (!this.m_userWantsToQuit && !gameOver)
                     {
+                        Player nowPlaying = game.CurrentTurn;
+                        Console.WriteLine(nowPlaying.Name + " its your turn. place your sign in an empty cell:");
+
                         game.Board.Print();
-                        Console.ReadLine();
                         
                     }
                 }
@@ -52,7 +54,7 @@ You can press 'Q' at any point to quit the game!");
         private void startBoard()
         {
             UserInput userInput = new UserInput();
-            sbyte boardSize = userInput.GetBoardSize(out m_gameOver);
+            sbyte boardSize = userInput.GetBoardSize(out m_userWantsToQuit);
 
             this.m_ConsoleBoard = new Board(boardSize);
             ClearScreen();
@@ -65,15 +67,15 @@ You can press 'Q' at any point to quit the game!");
             string playerTwoName;
             bool isComputerOpponent;
 
-            isComputerOpponent = userInput.GetOpponentType(out m_gameOver);
-            if (m_gameOver)
+            isComputerOpponent = userInput.GetOpponentType(out m_userWantsToQuit);
+            if (m_userWantsToQuit)
             {
                 return;
             }
             ClearScreen();
 
-            playerOneName = userInput.GetUserName(out m_gameOver, 1);
-            if (m_gameOver)
+            playerOneName = userInput.GetUserName(out m_userWantsToQuit, 1);
+            if (m_userWantsToQuit)
             {
                 return;
             }
@@ -81,8 +83,8 @@ You can press 'Q' at any point to quit the game!");
 
             if (!isComputerOpponent)
             {
-                playerTwoName = userInput.GetUserName(out m_gameOver, 2);
-                if (m_gameOver)
+                playerTwoName = userInput.GetUserName(out m_userWantsToQuit, 2);
+                if (m_userWantsToQuit)
                 {
                     return;
                 }

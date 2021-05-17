@@ -9,7 +9,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
     internal class UserInput
     {
 
-        internal sbyte GetBoardSize(out bool io_gameOver)
+        internal sbyte GetBoardSize(out bool io_UserWantsToQuit)
         {
             string userInput;
             sbyte boardSize;
@@ -21,7 +21,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             {
                 if(isQuitInput(userInput))
                 {
-                    io_gameOver = true;
+                    io_UserWantsToQuit = true;
 
                     return 0;
                 }
@@ -29,8 +29,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 Console.WriteLine("Oops. invalid input. please type only numbers in range 3-9:");
                 userInput = Console.ReadLine();
             }
-            
-            io_gameOver = false;
+
+            io_UserWantsToQuit = false;
             return boardSize;
         }
 
@@ -42,7 +42,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return (isSbyte && i_boardSize >= 3 && i_boardSize <= 9);
         }
 
-        internal string GetUserName(out bool io_gameOver, int i_numOfPlayer)
+        internal string GetUserName(out bool io_UserWantsToQuit, int i_numOfPlayer)
         {
             string userInput; 
 
@@ -51,17 +51,17 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
             if (isQuitInput(userInput))
             {
-                io_gameOver = true;
+                io_UserWantsToQuit = true;
 
                 return userInput;
             }
 
-            io_gameOver = false;
+            io_UserWantsToQuit = false;
 
             return userInput;
         }
 
-        internal bool GetOpponentType(out bool io_gameOver)
+        internal bool GetOpponentType(out bool io_UserWantsToQuit)
         {
             string userInput;
             bool isComputerOpponent;
@@ -77,7 +77,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             {
                 if (isQuitInput(userInput))
                 {
-                    io_gameOver = true;
+                    io_UserWantsToQuit = true;
 
                     return true;
                 }
@@ -94,19 +94,31 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 isComputerOpponent = false;
             }
 
-            io_gameOver = false;
+            io_UserWantsToQuit = false;
 
             return isComputerOpponent;
         }
+
+        public (sbyte, sbyte) GetUserMove(out bool io_UserWantsToQuit, sbyte i_boardSize)
+        {
+            sbyte row;
+            sbyte column;
+            string userInput;
+
+            Console.WriteLine("Pick a row for you sign:");
+            userInput = Console.ReadLine();
+            
+        } 
 
         private bool IsValidOpponetChoice(string i_userInput)
         {
             return true;
         }
 
-        // The method recives the user input and checks if the user tries to quit the game.
-        // Returns true if he does, false otherwise.
+
+
         private bool isQuitInput(string i_userInput)
+
         {
             return i_userInput == "Q";
         }
@@ -116,5 +128,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             return Enum.IsDefined(typeof(Cell.Sign), i_input);
         }
+
+
+        private bool isValid
     }
 }
