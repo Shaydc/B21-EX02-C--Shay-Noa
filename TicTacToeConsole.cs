@@ -58,6 +58,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 (userInputRow, userInputCol) = userInput.GetUserMove(ref m_userWantsToQuit, i_game.Board.FreeCells);
                 i_game.MakeMove(userInputRow, userInputCol);
             }
+            i_game.switchCurrentPlayer();
 
             i_game.Board.PrintBoardToConsole();
 

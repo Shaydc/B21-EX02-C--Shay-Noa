@@ -116,7 +116,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return -1;
         }
 
-        // Write the sing to the cell and remove the 
+        // Write the sing to the cell and remove the cell from free list 
         // returning the cell by location + if the cell was empty
         public void WriteToCell(sbyte m_Col, sbyte m_Rol, Cell.Sign m_Sign){
 
@@ -125,6 +125,19 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
             // change the sing and remove it from the free 
             if (indexofcell != -1) {
+                this.m_FreeCells[indexofcell].CellSign = m_Sign;
+                this.m_FreeCells.RemoveAt(indexofcell);
+            }
+        }
+
+        public void WriteToCell(sbyte index, Cell.Sign m_Sign)
+        {
+            // getting the cell index on the free list
+            sbyte indexofcell = index;
+
+            // change the sing and remove it from the free 
+            if (indexofcell != -1)
+            {
                 this.m_FreeCells[indexofcell].CellSign = m_Sign;
                 this.m_FreeCells.RemoveAt(indexofcell);
             }
