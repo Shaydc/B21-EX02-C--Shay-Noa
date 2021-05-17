@@ -91,5 +91,14 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
             Console.WriteLine(matrix);
         }
+
+        // Default properites:
+        public List<Cell> FreeCells
+        {
+            get
+            {
+                return m_FreeCells;
+            }
+        }
     }
 }

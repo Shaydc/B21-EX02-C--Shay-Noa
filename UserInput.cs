@@ -9,7 +9,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
     internal class UserInput
     {
 
-        internal sbyte GetBoardSize(out bool io_UserWantsToQuit)
+        internal sbyte GetBoardSize(ref bool io_UserWantsToQuit)
         {
             string userInput;
             sbyte boardSize;
@@ -24,13 +24,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                     io_UserWantsToQuit = true;
 
                     return 0;
+
                 }
 
                 Console.WriteLine("Oops. invalid input. please type only numbers in range 3-9:");
                 userInput = Console.ReadLine();
             }
 
-            io_UserWantsToQuit = false;
             return boardSize;
         }
 
@@ -42,26 +42,23 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return (isSbyte && i_boardSize >= 3 && i_boardSize <= 9);
         }
 
-        internal string GetUserName(out bool io_UserWantsToQuit, int i_numOfPlayer)
+        internal string GetUserName(ref bool io_UserWantsToQuit, int i_numOfPlayer)
         {
             string userInput;
 
             Console.WriteLine("Enter player " + i_numOfPlayer + " name:");
             userInput = Console.ReadLine();
-
-            if (isQuitInput(userInput))
+            if(isQuitInput(userInput))
             {
                 io_UserWantsToQuit = true;
 
                 return userInput;
             }
 
-            io_UserWantsToQuit = false;
-
             return userInput;
         }
 
-        internal bool GetIfOpponentIsComputer(out bool io_UserWantsToQuit)
+        internal bool GetIfOpponentIsComputer(ref bool io_UserWantsToQuit)
         {
             string userInput;
             string msg;
@@ -77,14 +74,10 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 {
                     case "1":
                         {
-                            io_UserWantsToQuit = false;
-
                             return true;
                         }
                     case "2":
                         {
-                            io_UserWantsToQuit = false;
-
                             return false;
                         }
                 }
@@ -100,7 +93,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
-        public (sbyte, sbyte) GetUserMove(out bool io_UserWantsToQuit, List<Cell> i_FreeCells)
+        public (sbyte, sbyte) GetUserMove(ref bool io_UserWantsToQuit, List<Cell> i_FreeCells)
         {
             string userInputRow;
             string userInputCol;
@@ -126,8 +119,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 {
                     if (isAvailableCell(i_FreeCells, userInputRow, userInputCol))
                     {
-                        io_UserWantsToQuit = false;
-
                         return (Convert.ToSByte(userInputRow), Convert.ToSByte(userInputCol));
                     }
                     else
@@ -143,6 +134,7 @@ It might be not empty \ the indexes are out of the scope of this board. please t
                     Console.WriteLine("row/column index must be a number. Try again:");
                 }
             }
+
             io_UserWantsToQuit = true;
 
             return (0, 0); //default return value;
