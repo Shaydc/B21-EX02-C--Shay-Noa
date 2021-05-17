@@ -48,7 +48,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // The method return true if the board is full, false otherwise.
         public bool IsBoardFull()
         {
-           return;
+           return true;
         }
 
         //Default properties:

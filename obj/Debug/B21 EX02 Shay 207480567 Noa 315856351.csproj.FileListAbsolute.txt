@@ -1,13 +1,9 @@
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe.config
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.pdb
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csprojAssemblyReference.cache
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csproj.CoreCompileInputs.cache
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.pdb
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\bin\Debug\Ex02.ConsoleUtils.dll
-C:\Users\Shay\source\repos\B21 EX02 Shay 207480567 Noa 315856351\B21 EX02 Shay 207480567 Noa 315856351\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csproj.CopyComplete
-C:\Users\Shay\Source\Repos\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csprojAssemblyReference.cache
-C:\Users\Shay\Source\Repos\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csproj.CoreCompileInputs.cache
-C:\Users\Shay\Source\Repos\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe
-C:\Users\Shay\Source\Repos\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.pdb
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csprojAssemblyReference.cache
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csproj.CoreCompileInputs.cache
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe.config
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\bin\Debug\B21 EX02 Shay 207480567 Noa 315856351.pdb
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\bin\Debug\Ex02.ConsoleUtils.dll
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.csproj.CopyComplete
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.exe
+C:\Users\Shay\Source\Repos\Shaydc\B21-EX02-C--Shay-Noa\obj\Debug\B21 EX02 Shay 207480567 Noa 315856351.pdb
