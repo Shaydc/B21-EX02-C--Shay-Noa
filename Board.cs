@@ -52,6 +52,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         public void PrintBoardToConsole()
         {
             string seperator = "====";
+
             string tab = "     ";
             StringBuilder seperationLine = new StringBuilder();
             StringBuilder index = new StringBuilder(tab);
@@ -122,9 +123,11 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         public void WriteToCell(sbyte i_Col, sbyte i_Row, Cell.Sign i_Sign){
 
             // getting the cell index on the free list
+
             int indexofcell = this.getFreeCellIndex(i_Row,i_Col);
 
             // change the sing and remove it from the free 
+            //********************* To Do - exception -1 *********************
             if (indexofcell != -1) {
                 this.m_FreeCells[indexofcell].CellSign = i_Sign;
                 this.m_FreeCells.RemoveAt(indexofcell);
