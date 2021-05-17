@@ -118,10 +118,10 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         // Write the sing to the cell and remove the 
         // returning the cell by location + if the cell was empty
-        public void WriteToCell(sbyte i_Col, sbyte i_Rol, Cell.Sign i_Sign){
+        public void WriteToCell(sbyte i_Col, sbyte i_Row, Cell.Sign i_Sign){
 
             // getting the cell index on the free list
-            int indexofcell = this.getFreeCellIndex(i_Rol,i_Col);
+            int indexofcell = this.getFreeCellIndex(i_Row,i_Col);
 
             // change the sing and remove it from the free 
             if (indexofcell != -1) {
