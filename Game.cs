@@ -36,7 +36,10 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // Computer Opponent method: makes a move for the computer
         public void MakeMove()
         {
-
+            // temp random like noob
+            Random rand = new Random();
+            sbyte index = Convert.ToSByte(rand.Next(0, this.Board.FreeCells.Count));
+            this.Board.WriteToCell(index, this.CurrentTurn.Sign);
         }
 
         // The methd recives a row and col indexes.
@@ -44,13 +47,19 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // Then it check if the move got the game to be finished.
         public void switchCurrentPlayer()
         {
-
+            if (this.CurrentTurn == this.Player1)
+            {
+                this.CurrentTurn = this.Player2;
+            }
+            else {
+                this.CurrentTurn = this.Player1;
+            }
         }
 
         // The method return true if the board is full, false otherwise.
         public bool IsBoardFull()
         {
-           return true;
+            return this.Board.FreeCells.Count == 0;
         }
 
         //Default properties:

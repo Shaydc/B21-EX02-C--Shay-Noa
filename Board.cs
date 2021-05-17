@@ -116,7 +116,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return -1;
         }
 
-        // Write the sing to the cell and remove the 
+        // Write the sing to the cell and remove the cell from free list 
         // returning the cell by location + if the cell was empty
         public void WriteToCell(sbyte i_Col, sbyte i_Row, Cell.Sign i_Sign){
 
@@ -127,6 +127,20 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             // change the sing and remove it from the free 
             //********************* To Do - exception -1 *********************
             if (indexofcell != -1) {
+                this.m_FreeCells[indexofcell].CellSign = i_Sign;
+                this.m_FreeCells.RemoveAt(indexofcell);
+            }
+        }
+
+        // Write to cell by the computer, counts on ranodm choose of cell in m_FreeCells
+        public void WriteToCell(sbyte i_index, Cell.Sign i_Sign)
+        {
+            // getting the cell index on the free list
+            sbyte indexofcell = i_index;
+
+            // change the sing and remove it from the free 
+            if (indexofcell != -1)
+            {
                 this.m_FreeCells[indexofcell].CellSign = i_Sign;
                 this.m_FreeCells.RemoveAt(indexofcell);
             }
