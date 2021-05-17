@@ -15,7 +15,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         public void playGame()
         {
-            WelcomeMessage();
+            welcomeMessage();
             setUpBoard();
             if(!m_userWantsToQuit)
             {
@@ -60,11 +60,20 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
 
             i_game.Board.PrintBoardToConsole();
+            footer(i_game);
+        }
 
+        // Print in the bottom of the board the current players name and scores.
+        private void footer(Game i_game)
+        {
+            string msg = string.Format(@"{0}: {1} | {2}: {3} ", i_game.Player1.Name, i_game.Player1.Score,
+                i_game.Player2.Name, i_game.Player2.Score);
+
+            Console.WriteLine(msg);
         }
 
         // Print the welcome message at the begginig of the game:
-        private static void WelcomeMessage()
+        private void welcomeMessage()
         {
             string msg;
 
