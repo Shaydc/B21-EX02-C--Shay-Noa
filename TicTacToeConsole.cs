@@ -25,11 +25,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 setUpPlayers();
                 if(!m_gameOver)
                 {
+                    Console.WriteLine("hello");
                     Game game = new Game(m_player1, m_player2, m_ConsoleBoard);
-
-                    while(!m_gameOver)
+                    while (!m_gameOver)
                     {
                         game.Board.Print();
+                        Console.ReadLine();
+                        
                     }
                 }
             }
@@ -53,6 +55,7 @@ You can press 'Q' at any point to quit the game!");
             sbyte boardSize = userInput.GetBoardSize(out m_gameOver);
 
             this.m_ConsoleBoard = new Board(boardSize);
+            ClearScreen();
         }
 
         private void setUpPlayers()
@@ -62,16 +65,20 @@ You can press 'Q' at any point to quit the game!");
             string playerTwoName;
             bool isComputerOpponent;
 
-            playerOneName = userInput.GetUserName(out m_gameOver, 1);
-            if (m_gameOver)
-            {
-                return;
-            }
             isComputerOpponent = userInput.GetOpponentType(out m_gameOver);
             if (m_gameOver)
             {
                 return;
             }
+            ClearScreen();
+
+            playerOneName = userInput.GetUserName(out m_gameOver, 1);
+            if (m_gameOver)
+            {
+                return;
+            }
+            ClearScreen();
+
             if (!isComputerOpponent)
             {
                 playerTwoName = userInput.GetUserName(out m_gameOver, 2);
@@ -79,14 +86,19 @@ You can press 'Q' at any point to quit the game!");
                 {
                     return;
                 }
+                ClearScreen();
             }
             else
             {
                 playerTwoName = "Computer";
             }
-
             this.m_player1 = new Player(playerOneName, false);
             this.m_player2 = new Player(playerTwoName, isComputerOpponent);
+        }
+
+        private void ClearScreen()
+        {
+            Ex02.ConsoleUtils.Screen.Clear();
         }
     }
 }

@@ -43,13 +43,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             string seperator = "=====";
             string tab = "    ";
-            StringBuilder seperationLine = new StringBuilder(seperator);
+            StringBuilder seperationLine = new StringBuilder();
             StringBuilder index = new StringBuilder(tab);
 
             for (sbyte i = 1; i <= this.m_BoardSize; i++)
             {
                 seperationLine.Append(seperator);
-                index.AppendFormat("   {0}  ", i);
+                index.AppendFormat("  {0}  ", i);
             }
 
             StringBuilder matrix = new StringBuilder();
@@ -58,13 +58,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             int column = 0;
             for (sbyte row = 0; row < this.m_BoardSize; row++)
             {
-                matrix.AppendFormat("  {0}  |", column + 1);
+                matrix.AppendFormat(" {0} |", column + 1);
 
                 for (sbyte col = 0; col < this.m_BoardSize; col++)
                 {
                     if(this.m_Board[row, col].CellSign is 0)
                     {
-                        matrix.AppendFormat("  {0}  ", "");
+                        matrix.AppendFormat("{0}   ", " ");
                     } 
                     else
                     {
@@ -78,8 +78,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 matrix.Append(tab);
                 matrix.Append(seperationLine);
                 matrix.AppendLine();
-
             }
+            Console.WriteLine(matrix);
         }
     }
 }

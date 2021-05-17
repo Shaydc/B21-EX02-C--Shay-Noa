@@ -26,7 +26,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                     return 0;
                 }
 
-                Console.WriteLine("Oops. invalid input. please type only numbers in range 5-9:");
+                Console.WriteLine("Oops. invalid input. please type only numbers in range 3-9:");
                 userInput = Console.ReadLine();
             }
             
@@ -38,8 +38,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             bool isSbyte;
             isSbyte = sbyte.TryParse(i_userInput, out i_boardSize);
-            
-            return (!isSbyte || i_boardSize < 3 || i_boardSize > 9);
+            Console.WriteLine(isSbyte);
+            return (isSbyte && i_boardSize >= 3 && i_boardSize <= 9);
         }
 
         internal string GetUserName(out bool io_gameOver, int i_numOfPlayer)
