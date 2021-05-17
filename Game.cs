@@ -8,12 +8,14 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     class Game
     {
+        // set variables 
         private Player m_Player1;
         private Player m_Player2;
         private Board m_Board;
         private Player m_CurrentTurn;
         private bool m_GameOver;
 
+        // init game 
         public Game(Player i_player1, Player i_player2, Board i_board)
         {
             this.m_Player1 = i_player1;
@@ -28,13 +30,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // Then it check if the move got the game to be finished.
         public void MakeMove(sbyte i_row, sbyte i_col)
         {
-           return;
+            this.Board.WriteToCell(i_col, i_row, this.CurrentTurn.Sign);
         }
 
         // Computer Opponent method: makes a move for the computer
         public void MakeMove()
         {
-            return;
+
         }
 
         // The methd recives a row and col indexes.
@@ -42,7 +44,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // Then it check if the move got the game to be finished.
         public void switchCurrentPlayer()
         {
-           return;
+
         }
 
         // The method return true if the board is full, false otherwise.
