@@ -147,5 +147,19 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 this.m_FreeCells.RemoveAt(indexofcell);
             }
         }
+        public sbyte BoardSize
+        {
+            get
+            {
+                return m_BoardSize;
+            }
+        }
+        public Cell[,] TheBoard
+        {
+            get
+            {
+                return m_Board;
+            }
+        }
     }
 }
