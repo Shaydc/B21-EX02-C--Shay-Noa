@@ -39,6 +39,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return this.m_FreeCells.Count == 0;
         }
 
+        //prints the board to the console.
         public void PrintBoardToConsole()
         {
             string seperator = "=====";
@@ -82,12 +83,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             Console.WriteLine(matrix);
         }
 
+        // Default properites:
         public List<Cell> FreeCells
         {
             get
             {
                 return m_FreeCells;
-            }        
+            }
         }
     }
 }
