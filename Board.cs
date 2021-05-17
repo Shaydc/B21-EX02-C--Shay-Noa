@@ -102,7 +102,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         // Return the index of the free cell on freecells list 
         // if not found return -1
-        private sbyte getFreeCellIndex(sbyte m_Col, sbyte m_Rol) {
+        private int getFreeCellIndex(sbyte m_Col, sbyte m_Rol) {
             // go over each free cell in the freecells list
             for(sbyte i=0; i<this.m_FreeCells.Count; i++) {
                 
@@ -121,7 +121,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         public void WriteToCell(sbyte m_Col, sbyte m_Rol, Cell.Sign m_Sign){
 
             // getting the cell index on the free list
-            sbyte indexofcell = this.getFreeCellIndex(m_Rol,m_Col);
+            int indexofcell = this.getFreeCellIndex(m_Rol,m_Col);
 
             // change the sing and remove it from the free 
             if (indexofcell != -1) {
