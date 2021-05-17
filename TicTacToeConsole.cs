@@ -47,10 +47,17 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             sbyte userInputRow;
             sbyte userInputCol;
+            Player currentPlayer = i_game.CurrentTurn;
             UserInput userInput = new UserInput();
 
-            (userInputRow, userInputCol) =userInput.GetUserMove(ref m_userWantsToQuit, i_game.Board.FreeCells);
-            
+            if(currentPlayer.IsComputer)
+            {
+                i_game.MakeMove();
+            }
+            else{
+                (userInputRow, userInputCol) = userInput.GetUserMove(ref m_userWantsToQuit, i_game.Board.FreeCells);
+            }
+
             i_game.Board.PrintBoardToConsole();
 
         }

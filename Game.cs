@@ -31,10 +31,16 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
            return;
         }
 
+        // Computer Opponent method: makes a move for the computer
+        public void MakeMove()
+        {
+            return;
+        }
+
         // The methd recives a row and col indexes.
         // It makes a move for the current player, and put his sign in the cell in the chose index.
         // Then it check if the move got the game to be finished.
-        public void switchCurrentPlayer(sbyte i_row, sbyte i_col)
+        public void switchCurrentPlayer()
         {
            return;
         }
