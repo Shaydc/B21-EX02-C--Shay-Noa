@@ -15,7 +15,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         public void playGame()
         {
-            welcomeMessage();
+            headerMessage();
             setUpBoard();
             if(!m_userWantsToQuit)
             {
@@ -24,7 +24,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 {
                     Game game = new Game(m_player1, m_player2, m_ConsoleBoard);
                     bool gameOver = game.GameOver;
-
+                    game.Board.PrintBoardToConsole();
                     while (!gameOver)
                     {
                         playNextMove(ref game);
@@ -52,6 +52,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
             if(currentPlayer.IsComputer)
             {
+                ClearScreen();
                 i_game.MakeMove();
             }
             else{
@@ -71,15 +72,18 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 i_game.Player2.Name, i_game.Player2.Score);
 
             Console.WriteLine(msg);
+            Console.WriteLine();
         }
 
         // Print the welcome message at the begginig of the game:
-        private void welcomeMessage()
+        private void headerMessage()
         {
             string msg;
+            string centerTab = "                "; 
 
-            msg = string.Format(@"~ Welcome to Reverse TicTacToe! ~
-You can press 'Q' at any point to quit the game!");
+            msg = string.Format(@"{0}      ~ Welcome to Reverse TicTacToe! ~
+{0}You can press 'Q' at any point to quit the game!
+", centerTab);
 
             Console.WriteLine(msg);
         }
@@ -144,6 +148,7 @@ You can press 'Q' at any point to quit the game!");
         private void ClearScreen()
         {
             Ex02.ConsoleUtils.Screen.Clear();
+            headerMessage();
         }
     }
 }
