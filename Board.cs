@@ -30,12 +30,12 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // create each cell with location and default vaule
         private void initialBoard()
         {
-            for (sbyte row = 0; row < this.m_BoardSize; row++)
+            for (sbyte row = 1; row <= this.m_BoardSize; row++)
             {
-                for (sbyte col = 0; col < this.m_BoardSize; col++)
+                for (sbyte col = 1; col <= this.m_BoardSize; col++)
                 {
-                    this.m_Board[row, col] = new Cell(row, col, Cell.Sign.Empty);
-                    this.m_FreeCells.Add(this.m_Board[row, col]);
+                    this.m_Board[row - 1, col - 1] = new Cell(row, col, Cell.Sign.Empty);
+                    this.m_FreeCells.Add(this.m_Board[row - 1 , col - 1]);
                 }
             }
         }
@@ -50,8 +50,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         // borad printer 
         public void PrintBoardToConsole()
         {
-            string seperator = "=====";
-            string tab = "    ";
+            string seperator = "======";
+            string tab = "     ";
             StringBuilder seperationLine = new StringBuilder();
             StringBuilder index = new StringBuilder(tab);
 
@@ -73,7 +73,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 {
                     if(this.m_Board[row, col].CellSign is 0)
                     {
-                        matrix.AppendFormat("{0}   ", " ");
+                        matrix.AppendFormat("  {0}  ", " ");
                     } 
                     else
                     {
@@ -121,9 +121,11 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         public void WriteToCell(sbyte i_Col, sbyte i_Row, Cell.Sign i_Sign){
 
             // getting the cell index on the free list
+
             int indexofcell = this.getFreeCellIndex(i_Row,i_Col);
 
             // change the sing and remove it from the free 
+            //********************* To Do - exception -1 *********************
             if (indexofcell != -1) {
                 this.m_FreeCells[indexofcell].CellSign = i_Sign;
                 this.m_FreeCells.RemoveAt(indexofcell);
