@@ -64,17 +64,17 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return this.Board.FreeCells.Count == 0;
         }
 
-        // Check if game finish
-        private void checkIfGameOver() {
+        // Check if game finished
+        private void checkIfGameOver()
+            {
+            // default check values for the diagonal true 
+            bool isDiagonalLTRFull = true;
+            bool isDiagonalRTLFull = true;
+            sbyte boardSize = this.m_Board.BoardSize;
+            
             if (this.isBoardFull()) {
                 this.m_GameOver = true;
             }
-
-            // cross default check value true 
-            bool incrossltf = true;
-            bool incrossrtl = true;
-
-            sbyte boardSize = this.m_Board.BoardSize;
 
             // create list of false (will use to check the row when goin over the cells)
             bool[] rowStrike = new bool[boardSize];
@@ -95,12 +95,12 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
                     // check cross left to right
                     if (row == col && this.CurrentTurn.Sign != this.m_Board.TheBoard[row, col].CellSign) {
-                        incrossrtl = false;
+                        isDiagonalRTLFull = false;
                     }
 
                     if (row + col == boardSize && this.CurrentTurn.Sign != this.m_Board.TheBoard[row, col].CellSign)
                     {
-                        incrossltf = false;
+                        isDiagonalLTRFull = false;
                     }
                 }
                 if (colstrikes) {
@@ -108,7 +108,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                     break;
                 }
             }
-            if (rowStrike.Contains(true) || incrossltf || incrossrtl){
+            if (rowStrike.Contains(true) || isDiagonalLTRFull || isDiagonalRTLFull){
                 this.m_GameOver = true;
             }
         }
