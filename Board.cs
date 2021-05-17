@@ -130,6 +130,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
+        // Write to cell by the computer, counts on ranodm choose of cell in m_FreeCells
         public void WriteToCell(sbyte i_index, Cell.Sign i_Sign)
         {
             // getting the cell index on the free list
