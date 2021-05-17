@@ -8,11 +8,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     class Player
     {
+        // Set variables 
         private string m_Name;
         private bool m_IsComputer;
         private int m_Score;
         private Cell.Sign m_Sign;
 
+        // init player 
         public Player(string i_PlayerName, Cell.Sign i_Sign, bool i_IsComputer)
         {
             this.m_Name = i_PlayerName;
@@ -21,6 +23,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             this.m_Score = 0;
         }
 
+        // Get player name value
         public string Name
         {
             get
@@ -28,6 +31,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 return m_Name;
             }
         }
+
+        // Get player isComputer value
         public bool IsComputer
         {
             get
@@ -35,11 +40,22 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 return m_IsComputer;
             }
         }
+
+        // Get player score value
         public int Score
         {
             get
             {
                 return m_Score;
+            }
+        }
+
+        // Get player sing value
+        public Cell.Sign Sign
+        {
+            get
+            {
+                return m_Sign;
             }
         }
     }
