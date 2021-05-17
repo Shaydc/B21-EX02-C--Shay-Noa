@@ -8,6 +8,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     class Cell
     {
+        // Set variables 
         public enum Sign
         {
             Empty = 0,
@@ -18,6 +19,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         private sbyte m_Row;
         private Sign m_CellSign;
 
+        // init cell 
         public Cell(sbyte i_row, sbyte i_col, Sign i_sign = Sign.Empty)
         {
             this.m_Col = i_col;
@@ -25,6 +27,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             this.m_CellSign = i_sign;
         }
 
+
+        // Get/Set cellsign value 
         public Sign CellSign
         {
             get
@@ -37,6 +41,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
+        // Get col value 
         public sbyte Col
         {
             get
@@ -44,7 +49,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 return this.m_Col;
             }
         }
-        
+
+        // Get row value 
         public sbyte Row
         {
             get

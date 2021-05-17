@@ -8,19 +8,26 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     class Board
     {
-        private Cell[,] m_Board;
-        private sbyte m_BoardSize;
-        private sbyte m_NumberOfTakenCells;
+        // Set variables 
+        private Cell[,] m_Board; 
+        private sbyte m_BoardSize; 
+        private sbyte m_NumberOfTakenCells; 
         private List<Cell> m_FreeCells;
 
+        // init borad 
         public Board(sbyte i_boardSize)
         {
+            // set default parameters 
             this.m_NumberOfTakenCells = 0;
             this.m_BoardSize = i_boardSize;
             this.m_Board = new Cell[i_boardSize, i_boardSize];
+
+            // create clean board 
             initialBoard();
         }
 
+
+        // create each cell with location and default vaule
         private void initialBoard()
         {
             for (sbyte row = 0; row < this.m_BoardSize; row++)
@@ -34,11 +41,14 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
+        // check if the borad is full 
+        // if full return true else false 
         public bool IsBoardFull()
         {
             return this.m_FreeCells.Count == 0;
         }
 
+        // borad printer 
         public void PrintBoardToConsole()
         {
             string seperator = "=====";
