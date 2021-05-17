@@ -130,15 +130,15 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
-        public void WriteToCell(sbyte index, Cell.Sign m_Sign)
+        public void WriteToCell(sbyte i_index, Cell.Sign i_Sign)
         {
             // getting the cell index on the free list
-            sbyte indexofcell = index;
+            sbyte indexofcell = i_index;
 
             // change the sing and remove it from the free 
             if (indexofcell != -1)
             {
-                this.m_FreeCells[indexofcell].CellSign = m_Sign;
+                this.m_FreeCells[indexofcell].CellSign = i_Sign;
                 this.m_FreeCells.RemoveAt(indexofcell);
             }
         }
