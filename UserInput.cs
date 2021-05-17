@@ -8,13 +8,14 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 {
     internal class UserInput
     {
-
         internal sbyte GetBoardSize(ref bool io_UserWantsToQuit)
         {
             string userInput;
             sbyte boardSize;
+            string msg;
 
-            Console.WriteLine("Please enter the board size: (3-9)");
+            msg = string.Format(@"Please enter the board size: (3-9)");
+            Console.WriteLine(msg);
             userInput = Console.ReadLine();
 
             while (!isValidBoardSize(userInput, out boardSize))
@@ -27,7 +28,8 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
                 }
 
-                Console.WriteLine("Oops. invalid input. please type only numbers in range 3-9:");
+                msg = string.Format(@"Oops. invalid input. please type only numbers in range 3-9:");
+                Console.WriteLine(msg);
                 userInput = Console.ReadLine();
             }
 
@@ -38,7 +40,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             bool isSbyte;
             isSbyte = sbyte.TryParse(i_userInput, out i_boardSize);
-            Console.WriteLine(isSbyte);
             return (isSbyte && i_boardSize >= 3 && i_boardSize <= 9);
         }
 
@@ -97,7 +98,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             string userInputRow;
             string userInputCol;
-            string msg;
 
             while (true)
             {
@@ -123,14 +123,12 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                     }
                     else
                     {
-                        Ex02.ConsoleUtils.Screen.Clear();
-                        msg = string.Format(@"The cell you were trying to reach is not avilable.
-It might be not empty \ the indexes are out of the scope of this board. please try again:");
+                        Console.WriteLine("Cell is already occupied/out of the board scope. try again:");
+                        
                     }
                 }
                 else
                 {
-                    Ex02.ConsoleUtils.Screen.Clear();
                     Console.WriteLine("row/column index must be a number. Try again:");
                 }
             }
