@@ -99,7 +99,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return isComputerOpponent;
         }
 
-        public (sbyte, sbyte) GetUserMove(out bool io_UserWantsToQuit, sbyte i_boardSize)
+        public (sbyte, sbyte) GetUserMove(out bool io_UserWantsToQuit, List<Cell> i_FreeCells)
         {
             sbyte row;
             sbyte column;
@@ -130,6 +130,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         }
 
 
-        private bool isValid
+        private bool isValidCell
     }
 }
