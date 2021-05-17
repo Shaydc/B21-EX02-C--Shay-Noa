@@ -34,7 +34,12 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             }
         }
 
-        public void PrintBoard()
+        public bool IsBoardFull()
+        {
+            return this.m_FreeCells.Count == 0;
+        }
+
+        public void Print()
         {
             string seperator = "=====";
             string tab = "    ";

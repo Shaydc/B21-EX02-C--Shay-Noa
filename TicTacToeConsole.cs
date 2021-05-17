@@ -13,16 +13,25 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         private Player m_player2;
         private Board m_ConsoleBoard;
 
-        public void startGame()
+        public void playGame()
         {
+
             WelcomeMessage();
 
             // Get the board size:
             startBoard();
-            if (!m_gameOver)
+            if(!m_gameOver)
             {
                 setUpPlayers();
-                
+                if(!m_gameOver)
+                {
+                    Game game = new Game(m_player1, m_player2, m_ConsoleBoard);
+
+                    while(!m_gameOver)
+                    {
+                        game.Board.Print();
+                    }
+                }
             }
             Console.WriteLine("Game over!");
             Console.ReadLine();

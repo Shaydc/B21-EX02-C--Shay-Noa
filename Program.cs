@@ -10,7 +10,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
     {
         public static void Main() {
             TicTacToeConsole reverseTicTacToe = new TicTacToeConsole();
-            reverseTicTacToe.startGame();
+            reverseTicTacToe.playGame();
         }
     }
 }
