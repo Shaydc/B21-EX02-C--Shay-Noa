@@ -39,7 +39,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return this.m_FreeCells.Count == 0;
         }
 
-        public void Print()
+        public void PrintBoardToConsole()
         {
             string seperator = "=====";
             string tab = "    ";

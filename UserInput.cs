@@ -13,13 +13,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         {
             string userInput;
             sbyte boardSize;
-            
+
             Console.WriteLine("Please enter the board size: (3-9)");
             userInput = Console.ReadLine();
-            
-            while(!isValidBoardSize(userInput, out boardSize))
+
+            while (!isValidBoardSize(userInput, out boardSize))
             {
-                if(isQuitInput(userInput))
+                if (isQuitInput(userInput))
                 {
                     io_UserWantsToQuit = true;
 
@@ -34,7 +34,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return boardSize;
         }
 
-        private bool isValidBoardSize (string i_userInput, out sbyte i_boardSize)
+        private bool isValidBoardSize(string i_userInput, out sbyte i_boardSize)
         {
             bool isSbyte;
             isSbyte = sbyte.TryParse(i_userInput, out i_boardSize);
@@ -44,7 +44,7 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
 
         internal string GetUserName(out bool io_UserWantsToQuit, int i_numOfPlayer)
         {
-            string userInput; 
+            string userInput;
 
             Console.WriteLine("Enter player " + i_numOfPlayer + " name:");
             userInput = Console.ReadLine();
@@ -61,61 +61,92 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             return userInput;
         }
 
-        internal bool GetOpponentType(out bool io_UserWantsToQuit)
+        internal bool GetIfOpponentIsComputer(out bool io_UserWantsToQuit)
         {
             string userInput;
-            bool isComputerOpponent;
             string msg;
 
             msg = string.Format(@"Who would you like to play against? (press the option number)
 (1) The computer
 (2) Another player");
             Console.WriteLine(msg);
-            userInput = Console.ReadLine();
-
-            while (!IsValidOpponetChoice(userInput))
+            while (true)
             {
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "1":
+                        {
+                            io_UserWantsToQuit = false;
+
+                            return true;
+                        }
+                    case "2":
+                        {
+                            io_UserWantsToQuit = false;
+
+                            return false;
+                        }
+                }
+
                 if (isQuitInput(userInput))
                 {
                     io_UserWantsToQuit = true;
 
-                    return true;
+                    return true; //default return value.
                 }
+
                 Console.WriteLine("Oops. invalid input. please chooce option 1 or 2:");
-                userInput = Console.ReadLine();
             }
-
-            if (userInput == "1")
-            {
-                isComputerOpponent = true;
-            }
-            else
-            {
-                isComputerOpponent = false;
-            }
-
-            io_UserWantsToQuit = false;
-
-            return isComputerOpponent;
         }
 
         public (sbyte, sbyte) GetUserMove(out bool io_UserWantsToQuit, List<Cell> i_FreeCells)
         {
-            sbyte row;
-            sbyte column;
-            string userInput;
+            string userInputRow;
+            string userInputCol;
+            string msg;
 
-            Console.WriteLine("Pick a row for you sign:");
-            userInput = Console.ReadLine();
-            
-        } 
+            while (true)
+            {
+                Console.Write("choose a row: ");
+                userInputRow = Console.ReadLine();
+                if (isQuitInput(userInputRow))
+                {
+                    break;
+                }
 
-        private bool IsValidOpponetChoice(string i_userInput)
-        {
-            return true;
+                Console.Write("choose a column: ");
+                userInputCol = Console.ReadLine();
+                if (isQuitInput(userInputRow))
+                {
+                    break;
+                }
+
+                if (isSbyte(userInputRow) && isSbyte(userInputRow))
+                {
+                    if (isAvailableCell(i_FreeCells, userInputRow, userInputCol))
+                    {
+                        io_UserWantsToQuit = false;
+
+                        return (Convert.ToSByte(userInputRow), Convert.ToSByte(userInputCol));
+                    }
+                    else
+                    {
+                        Ex02.ConsoleUtils.Screen.Clear();
+                        msg = string.Format(@"The cell you were trying to reach is not avilable.
+It might be not empty \ the indexes are out of the scope of this board. please try again:");
+                    }
+                }
+                else
+                {
+                    Ex02.ConsoleUtils.Screen.Clear();
+                    Console.WriteLine("row/column index must be a number. Try again:");
+                }
+            }
+            io_UserWantsToQuit = true;
+
+            return (0, 0); //default return value;
         }
-
-
 
         private bool isQuitInput(string i_userInput)
 
@@ -124,12 +155,21 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         }
 
         // Check if sign is valid
-        private bool isValidSign(string i_input)
+        private bool isValidSign(string i_string)
         {
-            return Enum.IsDefined(typeof(Cell.Sign), i_input);
+            return Enum.IsDefined(typeof(Cell.Sign), i_string);
+        }
+
+        private bool isSbyte(string i_string)
+        {
+            return sbyte.TryParse(i_string, out sbyte n);
+        }
+
+        private bool isAvailableCell(List<Cell> i_CellList, string i_Row, string i_Col)
+        {
+            return i_CellList.Exists(x => (x.Row == Convert.ToSByte(i_Row)) && (x.Col == Convert.ToSByte(i_Col)));
         }
 
 
-        private bool isValidCell
-    }
+    } 
 }

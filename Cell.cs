@@ -43,10 +43,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             {
                 return this.m_Col;
             }
-            set
-            {
-                this.m_Col = value;
-            }
         }
         
         public sbyte Row
@@ -54,10 +50,6 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             get
             {
                 return this.m_Row;
-            }
-            set
-            {
-                this.m_Row = value;
             }
         }
     }

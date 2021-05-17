@@ -27,12 +27,14 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
                 {
                     Game game = new Game(m_player1, m_player2, m_ConsoleBoard);
                     bool gameOver = game.GameOver;
+
+                    while (!gameOver)
+                    {
+                        
+                    }
                     while (!this.m_userWantsToQuit && !gameOver)
                     {
-                        Player nowPlaying = game.CurrentTurn;
-                        Console.WriteLine(nowPlaying.Name + " its your turn. place your sign in an empty cell:");
-
-                        game.Board.Print();
+                        game.Board.PrintBoardToConsole();
                         
                     }
                 }
@@ -67,7 +69,7 @@ You can press 'Q' at any point to quit the game!");
             string playerTwoName;
             bool isComputerOpponent;
 
-            isComputerOpponent = userInput.GetOpponentType(out m_userWantsToQuit);
+            isComputerOpponent = userInput.GetIfOpponentIsComputer(out m_userWantsToQuit);
             if (m_userWantsToQuit)
             {
                 return;
@@ -94,8 +96,8 @@ You can press 'Q' at any point to quit the game!");
             {
                 playerTwoName = "Computer";
             }
-            this.m_player1 = new Player(playerOneName, false);
-            this.m_player2 = new Player(playerTwoName, isComputerOpponent);
+            this.m_player1 = new Player(playerOneName, Cell.Sign.X, false);
+            this.m_player2 = new Player(playerTwoName, Cell.Sign.O, isComputerOpponent);
         }
 
         private void ClearScreen()

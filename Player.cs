@@ -11,11 +11,13 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
         private string m_Name;
         private bool m_IsComputer;
         private int m_Score;
+        private Cell.Sign m_Sign;
 
-        public Player(string i_PlayerName, bool i_IsComputer)
+        public Player(string i_PlayerName, Cell.Sign i_Sign, bool i_IsComputer)
         {
             this.m_Name = i_PlayerName;
             this.m_IsComputer = i_IsComputer;
+            this.m_Sign = i_Sign;
             this.m_Score = 0;
         }
 
