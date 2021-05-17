@@ -159,7 +159,15 @@ It might be not empty \ the indexes are out of the scope of this board. please t
 
         private bool isAvailableCell(List<Cell> i_CellList, string i_Row, string i_Col)
         {
-            return i_CellList.Exists(x => (x.Row == Convert.ToSByte(i_Row)) && (x.Col == Convert.ToSByte(i_Col)));
+            foreach(Cell cell in i_CellList)
+            {
+                if(cell.Row == Convert.ToSByte(i_Row) && cell.Col == Convert.ToSByte(i_Col))
+                {
+                    return true;       
+                }
+            }
+            
+            return false;
         }
 
 
