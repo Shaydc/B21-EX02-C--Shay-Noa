@@ -23,6 +23,15 @@ namespace B21_EX02_Shay_207480567_Noa_315856351
             this.m_GameOver = false;
         }
 
+        // The methd recives a row and col indexes.
+        // It makes a move for the current player, and put his sign in the cell in the chose index.
+        // Then it check if the move got the game to be finished.
+        public void MakeMove(sbyte i_row, sbyte i_col)
+        {
+           
+        }
+
+        //Default properties:
         public bool GameOver
         {
             get
